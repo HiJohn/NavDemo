@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blankFragment">
+
+
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="mope.emp.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank">
+        <action
+            android:id="@+id/to_page_2"
+            app:destination="@id/secFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="mope.emp.ThirdFragment"
+        tools:layout="@layout/fragment_third"
+        android:label="ThirdFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/secFragment"
+        android:name="mope.emp.SecFragment"
+        android:label="fragment_sec"
+        tools:layout="@layout/fragment_sec">
+        <action
+            android:id="@+id/to_page_3"
+            app:destination="@id/thirdFragment" />
+    </fragment>
+
+
+</navigation>

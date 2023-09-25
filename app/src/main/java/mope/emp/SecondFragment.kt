@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import mope.emp.databinding.FragmentSecBinding
 
-class SecFragment :Fragment() {
+class SecondFragment :Fragment() {
 
     private lateinit var binding:FragmentSecBinding
 

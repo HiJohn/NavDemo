@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="mope.emp.BlankFragment"
+        android:name="mope.emp.MainFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_blank">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/secFragment"
-        android:name="mope.emp.SecFragment"
+        android:name="mope.emp.SecondFragment"
         android:label="fragment_sec"
         tools:layout="@layout/fragment_sec">
         <action

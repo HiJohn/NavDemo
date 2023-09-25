@@ -5,16 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.SavedStateViewModelFactory
+import androidx.navigation.navGraphViewModels
 import mope.emp.databinding.FragmentBlankBinding
 
 
 /**
  *
  */
-class BlankFragment : Fragment() {
+class MainFragment : Fragment() {
 
 
     private lateinit var binding :FragmentBlankBinding
+
+    private val viewModel:NavViewModel by navGraphViewModels(R.id.nav_graph){
+        SavedStateViewModelFactory(requireActivity().application, requireParentFragment())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,11 +48,11 @@ class BlankFragment : Fragment() {
     companion object {
 
         @JvmStatic
-        fun newInstance() = BlankFragment()
+        fun newInstance() = MainFragment()
 
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            BlankFragment().apply {
+            MainFragment().apply {
                 arguments = Bundle().apply {
 
                 }

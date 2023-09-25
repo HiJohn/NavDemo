@@ -6,5 +6,5 @@ dependencyResolutionManagement {
 
     }
 }
-rootProject.name = "Emp"
+rootProject.name = "NavDemo"
 include ':app'

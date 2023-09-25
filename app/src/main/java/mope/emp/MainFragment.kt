@@ -43,6 +43,9 @@ class MainFragment : Fragment() {
         binding.sjn.setOnClickListener {
             nav().navigate(R.id.to_page_2)
         }
+        binding.cda.setOnClickListener {
+            viewModel.test.addAll(arrayListOf("a","b","c"))
+        }
     }
 
     companion object {

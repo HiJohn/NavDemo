@@ -5,22 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.SavedStateViewModelFactory
-import androidx.navigation.navGraphViewModels
 import mope.emp.databinding.FragmentBlankBinding
 
 
 /**
- *
+ * nav`s first page
  */
 class MainFragment : Fragment() {
 
 
-    private lateinit var binding :FragmentBlankBinding
+    private lateinit var binding: FragmentBlankBinding
+//      TODO what`s navGraphViewModels
+//    private val viewModel: NavViewModel by navGraphViewModels(R.id.nav_graph) {
+//        SavedStateViewModelFactory(requireActivity().application, requireParentFragment())
+//    }
 
-    private val viewModel:NavViewModel by navGraphViewModels(R.id.nav_graph){
-        SavedStateViewModelFactory(requireActivity().application, requireParentFragment())
-    }
+    private val viewModel:NavViewModel by navSharedLazyVm()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBlankBinding.inflate(inflater,container,false)
+        binding = FragmentBlankBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -41,11 +41,26 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.sjn.setOnClickListener {
-            nav().navigate(R.id.to_page_2)
+            val args  = Bundle()
+            args.putBoolean("testBool",true)
+            args.putString("testStr","sayHey")
+            nav().navigate(R.id.to_page_2,args)
         }
         binding.cda.setOnClickListener {
-            viewModel.test.addAll(arrayListOf("a","b","c"))
+            viewModel.netName.postValue("Not a name")
         }
+
+        viewModel.netName.observe(requireActivity()){
+            binding.show.text = it
+        }
+
+//        lifecycleScope.launchWhenCreated {
+//            viewModel.netName.collect() {
+//
+//            }
+//        }
+
+
     }
 
     companion object {
